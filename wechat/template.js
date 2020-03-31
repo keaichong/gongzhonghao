@@ -21,8 +21,6 @@ module.exports = options => {
         // 可能会有多个item
         replyMessage += `<ArticleCount>${options.content.length}</ArticleCount>
         <Articles>`
-      
-            
         options.content.forEach(item => {
             replyMessage += `<item>
             <Title><![CDATA[${item.title}]]></Title>
