@@ -17,7 +17,7 @@ module.exports = options => {
         replyMessage += `<Video><MediaId><![CDATA[${options.MediaId}]]></MediaId><Title><![CDATA[${options.title}]]></Title><Description><![CDATA[${options.description}]]></Description></Video>`
     }else if(options.MsgType === 'music'){
         replyMessage += `<Music><Title><![CDATA[${options.TITLE}]]></Title><Description><![CDATA[${options.DESCRIPTION}]]></Description><MusicUrl><![CDATA[${options.MUSIC_Url}]]></MusicUrl><HQMusicUrl><![CDATA[${options.HQ_MUSIC_Url}]]></HQMusicUrl><ThumbMediaId><![CDATA[${options.media_id}]]></ThumbMediaId></Music>`       
-    }else if(options.MsgType === 'news'){
+    }else if(options.MsgType === 'news'){//图文信息
         // 可能会有多个item
         replyMessage += `<ArticleCount>${options.content.length}</ArticleCount>
         <Articles>`
@@ -31,7 +31,6 @@ module.exports = options => {
         }); 
         replyMessage   += '</Articles>'
     }
-    console.log(replyMessage)
     replyMessage += '</xml>'
     return replyMessage
 }
