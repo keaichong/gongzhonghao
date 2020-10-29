@@ -30,7 +30,7 @@ module.exports = {
     // 基本路路径, vue.cli 3.3以前请使用baseUrl
     publicPath: '/',
     // 打包输出文件目录
-    outputDir: 'dist',
+    outputDir: 'docs',
     // ⽤用于嵌套生成的静态资产（js，css，img，fonts）的目录。
     assetsDir: 'assets',
     // ⽣生产环境sourceMap
@@ -58,7 +58,7 @@ module.exports = {
     // proxy:null,
     proxy: {
         '/': {
-          target: 'http://2bd1f405f1c2.ngrok.io',
+          target: 'ttps://b964e5521ccf.ngrok.io',
           // target: 'http:/192.168.7.174:3000/api',
           ws: true,
           changeOrigin: true,
