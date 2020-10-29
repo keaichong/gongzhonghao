@@ -29,6 +29,7 @@ module.exports = () => {
             timestamp,
             nonce
         } = req.query
+        console.log({signature,nonce})
         const {
             token
         } = config
@@ -41,7 +42,7 @@ module.exports = () => {
                 res.send(echostr)
             } else {
                 console.log('get来自其他服务器')//因为不知道你再微信服务器配置的token所以签名不过
-                res.end('error')
+                res.end('get当前不是微信服务器--')
             }
         } else if (req.method === 'POST') {
             if (sha1Str == signature) {
@@ -81,7 +82,7 @@ module.exports = () => {
 
             }
         } else {
-            res.end('errors')
+            res.end('当前不是微信服务器')
         }
 
         // next()

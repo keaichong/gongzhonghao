@@ -11,8 +11,13 @@ module.exports = {
         "name": "菜单",
         "sub_button": [{
             "type": "view",
-            "name": "3我的网站",
-            "url": "http://localhost:8080"
+            "name": "百度一下",
+            "url": "http://www.baidu.com"
+        },
+        {
+            "type": "view",
+            "name": "我的网站",
+            "url": "https://keaichong.github.io/forever.github.io/#/"
         },
         {
             "type": "click",

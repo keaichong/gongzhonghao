@@ -55,7 +55,7 @@ app.get('/api/login',async(req,res)=>{
 app.get('/api/auth',async(req,res)=>{
  // 第一步：用户同意授权，获取code
  // 这是编码后的地址
- const router = encodeURI('http://ed41b1fb.ngrok.io')
+ const router = encodeURI('http://2bd1f405f1c2.ngrok.io')
  var return_uri = router;  
  var scope = 'snsapi_userinfo';
 

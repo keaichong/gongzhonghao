@@ -21,6 +21,8 @@ module.exports = (message)=> {
              content ='不要耍微信了'
          }else if(message.Content.includes('爱')){
              content = "我也爱你~"
+         }else if(message.Content.includes('宋晨阳')){
+            content = "加我好友844746224"
          }
      }else if(message.MsgType === 'image'){//图片
         options.MsgType = 'image'
@@ -36,12 +38,14 @@ module.exports = (message)=> {
         content =`纬度信息${ message.Location_X}`
      }else if(message.MsgType === 'event'){//订阅 消息
         if(message.Event === 'subscribe'){//订阅
-            content="欢迎您的关注"
+            content="欢迎您关注阳仔的测试号"
             if(message.Eventkey){
                 content = '用户扫描带参数的二维码关注公众号'
             }
         }else if(message.Event === 'unsubscribe'){//取消订阅
             console.log('有个用户取消了订阅')
+        }else if(message.Event === 'CLICK'){
+            content='你点了我一下'
         }
      }else if(message.MsgType === 'SCAN'){
             content = '用户扫描过 再次扫描带参数的二维码关注公众号'

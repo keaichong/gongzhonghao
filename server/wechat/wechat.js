@@ -59,7 +59,7 @@ class Wechat {
     return new Promise ((resolve, reject) => {
       readFile (filePath, (err, data) => {
         if (!err) {
-            data = JSON.parse (data);
+            // data = JSON.parse(data);
             console.log ('AccessToken读取成功', data);
           resolve (data);
         } else {

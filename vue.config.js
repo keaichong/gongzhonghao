@@ -57,8 +57,8 @@ module.exports = {
     port: 8080,
     // proxy:null,
     proxy: {
-        '/api': {
-          target: 'http://ed41b1fb.ngrok.io/api',
+        '/': {
+          target: 'http://2bd1f405f1c2.ngrok.io',
           // target: 'http:/192.168.7.174:3000/api',
           ws: true,
           changeOrigin: true,
