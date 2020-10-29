@@ -28,11 +28,11 @@ switch( precessEnv.VUE_APP_SECRET )
 }
 module.exports = {
     // 基本路路径, vue.cli 3.3以前请使用baseUrl
-    publicPath: './',
+    publicPath: './', //之前是  / 
     // 打包输出文件目录
-    outputDir: 'docs',
+    outputDir: 'docs', //之前是  dist
     // ⽤用于嵌套生成的静态资产（js，css，img，fonts）的目录。
-    assetsDir: 'assets',
+    assetsDir: './assets',
     // ⽣生产环境sourceMap
     productionSourceMap: true,
     // webpack配置
