@@ -36,14 +36,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 // 部署上线时读取静态文件
- app.use(express.static(path.join(__dirname, '../../dist')));
+ app.use(express.static(path.join(__dirname, '../dist')));
 // 后端api路由
 // app.use('/api', routerApi);
 
 app.post('/api/login',async(req,res)=>{
   // 随机字符串
-  if(+req.body.pwd === '111111'){
+  console.log(req.body)
+  if(+req.body.pwd === 111111){
     res.send({code:200})
+  }else{
+    res.send({code:404,msg:'密码错误'})
   }
   const noncestrc= (''+Math.random()).split('.')[1]
   // 时间戳
@@ -62,8 +65,8 @@ app.get('/api/auth',async(req,res)=>{
  var return_uri = router;  
  var scope = 'snsapi_userinfo';
 
- res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appID+'&redirect_uri='+return_uri+'&response_type=code&scope='+scope+'&state=STATE#wechat_redirect');
-
+//  res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appID+'&redirect_uri='+return_uri+'&response_type=code&scope='+scope+'&state=STATE#wechat_redirect');
+  res.send('ok')
 })
 
 // // 验证模块

@@ -17,7 +17,7 @@ export default {
   name: 'login',
   data() {
     return {
-      psd:'',
+      pwd:'',
       userName:'',
       src:require("../assets/logo.png")
     }
@@ -32,8 +32,8 @@ export default {
   },
   methods:{
     login(){
-      this.$http.post('/api/login',{psd:this.psd,userName:this.userName}).then(res=>{
-          if(res.code === 200){
+      this.$http.post('/api/login',{pwd:this.pwd,userName:this.userName}).then(res=>{
+          if(+res.data.code === 200){
               this.$router.push('404')
           }else{
             alert('密码错误')
