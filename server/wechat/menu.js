@@ -17,7 +17,7 @@ module.exports = {
         {
             "type": "view",
             "name": "我的网站",
-            "url": "https://keaichong.github.io/forever.github.io/#/"
+            "url": "http://81.69.23.175:8080/"
         },
         {
             "type": "click",

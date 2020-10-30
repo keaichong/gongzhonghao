@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    用户名<input type="text">
-    密码<input type="text">
+    用户名<input type="text" v-model="userName">
+    密码<input type="text" v-model="pwd">
     <button @click="login">登陆</button>
     <button @click="resign">注册</button>
         <!-- "serve:prod": "cross-env VUE_APP_SECRET=sit vue-cli-service build && cross-env VUE_APP_SECRET=sit node ./deploy",//打包之后在进行部署 -->
@@ -17,6 +17,8 @@ export default {
   name: 'login',
   data() {
     return {
+      psd:'',
+      userName:'',
       src:require("../assets/logo.png")
     }
   },
@@ -30,8 +32,12 @@ export default {
   },
   methods:{
     login(){
-      this.$http.get('/api/login').then(res=>{
-        console.log({res})
+      this.$http.post('/api/login',{psd:this.psd,userName:this.userName}).then(res=>{
+          if(res.code === 200){
+              this.$router.push('404')
+          }else{
+            alert('密码错误')
+          }
       })
     },
     resign(){

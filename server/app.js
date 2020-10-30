@@ -25,9 +25,9 @@ const history = require('connect-history-api-fallback');//
 const wechatApi = new WeChat()
 var a = async function (){
   let result = await wechatApi.deleteMenu ();
-    console.log (result, '删除菜单成功');
+    console.log ('删除菜单成功');
     result = await wechatApi.creatMenu (menu);
-    console.log (result, '创建菜单成功');
+    console.log ('创建菜单成功');
 }
 a()
 //后端配置history模式
@@ -36,12 +36,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 // 部署上线时读取静态文件
-// app.use(express.static(path.join(__dirname, '../../dist')));
+ app.use(express.static(path.join(__dirname, '../../dist')));
 // 后端api路由
 // app.use('/api', routerApi);
 
-app.get('/api/login',async(req,res)=>{
+app.post('/api/login',async(req,res)=>{
   // 随机字符串
+  if(+req.body.pwd === '111111'){
+    res.send({code:200})
+  }
   const noncestrc= (''+Math.random()).split('.')[1]
   // 时间戳
   const timestamp = Date.now()
@@ -50,12 +53,12 @@ app.get('/api/login',async(req,res)=>{
   const arr = [`jsapi_ticket=${ticket}`,`noncestrc=${noncestrc}`,`timestamp${timestamp}`,`url=${url}/api/login`]
   const str = arr.sort().join('&')
   const signature  = sha1(str)
-  res.send({signature,noncestrc,timestamp})//返回给微信服务器 微信知道你的ticket 所以微信会校验你的签名
+  // res.send({signature,noncestrc,timestamp})//返回给微信服务器 微信知道你的ticket 所以微信会校验你的签名
 })
 app.get('/api/auth',async(req,res)=>{
  // 第一步：用户同意授权，获取code
  // 这是编码后的地址
- const router = encodeURI('https://b964e5521ccf.ngrok.io')
+ const router = encodeURI('http://81.69.23.175:8080')
  var return_uri = router;  
  var scope = 'snsapi_userinfo';
 

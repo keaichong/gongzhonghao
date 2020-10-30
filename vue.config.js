@@ -1,5 +1,6 @@
 console.log('****************************')
 console.log('当前环境'+process.env.VUE_APP_SECRET)
+console.log('BASE_URL'+process.env.BASE_URL)
 console.log('****************************')
 console.log()
 const precessEnv = process.env;
@@ -28,9 +29,10 @@ switch( precessEnv.VUE_APP_SECRET )
 }
 module.exports = {
     // 基本路路径, vue.cli 3.3以前请使用baseUrl
+    // publicPath: '/wcb/base', //之前是  / 
     publicPath: './', //之前是  / 
     // 打包输出文件目录
-    outputDir: 'docs', //之前是  dist
+    outputDir: 'dist', //之前是  dist
     // ⽤用于嵌套生成的静态资产（js，css，img，fonts）的目录。
     assetsDir: './assets',
     // ⽣生产环境sourceMap
@@ -58,8 +60,8 @@ module.exports = {
     // proxy:null,
     proxy: {
         '/': {
-          target: 'https://b964e5521ccf.ngrok.io',
-          // target: 'http:/192.168.7.174:3000/api',
+          // target: 'https://localhost:',
+          target: 'http:/localhost:3000/api',
           ws: true,
           changeOrigin: true,
           secure: false,
