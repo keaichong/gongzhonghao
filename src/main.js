@@ -7,7 +7,13 @@ import axios from 'axios'
 import toast from './views/toast'
 import wx from 'weixin-js-sdk'
 // var wx = require('weixin-js-sdk');
-console.log(wx)
+// 如果是非线上环境，加载 VConsole（移动端适用）
+// if (process.env.NODE_ENV !== 'production') {
+    var VConsole = require('vconsole/dist/vconsole.min.js');
+    var vConsole = new VConsole();
+// }
+import {viewAdaptive} from '@/assets/lib/adaptView.js'
+viewAdaptive(750,100)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 // 添加事件总线对象

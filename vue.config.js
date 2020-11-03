@@ -61,7 +61,7 @@ module.exports = {
     proxy: {
         '/': {
           // target: 'https://localhost:',
-          target: 'http:/localhost:3000/api',
+          target: 'http://127.0.0.1:3000/api',
           ws: true,
           changeOrigin: true,
           secure: false,

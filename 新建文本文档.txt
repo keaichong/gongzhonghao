@@ -1,0 +1,1 @@
+说明了公众号签名的验证方式 验证请求是否来自微信服务器 https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html
