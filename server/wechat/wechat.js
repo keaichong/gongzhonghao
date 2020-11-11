@@ -60,7 +60,7 @@ class Wechat {
       readFile (filePath, (err, data) => {
         if (!err) {
             // data = JSON.parse(data);
-            console.log ('AccessToken读取成功', data);
+            console.log ('AccessToken读取成功');
           resolve (data);
         } else {
           reject ('读取失败');
@@ -165,7 +165,6 @@ class Wechat {
     return new Promise (async (resolve, reject) => {
       // 获取access_token
       const data = await this.fetchAccessToken ();
-      console.log('acctoken',{data})
       const url = `${api.ticket}&access_token=${data.access_token}`;
       rp ({
         method: 'GET',
@@ -200,7 +199,7 @@ class Wechat {
     return new Promise ((resolve, reject) => {
       readFile (filePath, (err, data) => {
         if (!err) {
-          console.log ('JsapiTicket读取成功', data);
+          console.log ('JsapiTicket读取成功');
           data = JSON.parse (data);
           resolve (data);
         } else {
@@ -248,7 +247,7 @@ class Wechat {
       .catch (async err => {
         console.log ('失败' + err);
         const res = await this.getJsapiTicket ();
-        console.log('获取ticket',res)
+        console.log('获取ticket')
         await this.saveJsapiTicket (res);
         return Promise.resolve (res);
       })

@@ -11,6 +11,7 @@ const {
     parseXMLAsync,
     formatMessage
 } = require('../utils/tools')
+
 module.exports = () => {
     return async (req, res, next) => {
 
@@ -42,7 +43,8 @@ module.exports = () => {
                 res.send(echostr)
             } else {
                 console.log('get来自其他服务器')//因为不知道你再微信服务器配置的token所以签名不过
-                res.end('get当前不是微信服务器--')
+                
+                // res.end('get当前不是微信服务器--')
             }
         } else if (req.method === 'POST') {
             if (sha1Str == signature) {
